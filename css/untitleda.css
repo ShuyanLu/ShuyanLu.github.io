@@ -1,0 +1,258 @@
+/* header */
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body{
+/*all body has */
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 300;
+	font-family: 'Buda', cursive;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+header {
+	margin-top: 35px;
+	margin-bottom: 35px;
+	position: relative;
+}
+
+header h1{
+	float:left;
+	width: auto;
+}
+div ul li a,
+header nav ul li a,
+header h1 a{
+
+}
+div ul li a,
+header nav ul li a,
+header h1 a:visited{
+	color: #000;
+}
+div ul li a,
+header nav ul li a,
+header h1 a:link{
+}
+div ul li a,
+header nav ul li a,
+header h1 a:active{
+	color: #01718d;
+	border-bottom-color: #01718d;
+}
+div ul li a,
+header nav ul li a,
+header h1 a:hover{
+	color: #346164;
+	border-bottom-color: #346164;
+}
+header h1 span{
+	font-size: 25px;
+	font-weight: bold;
+}
+
+header nav{
+
+position: relative;
+left: 10px;
+padding-top: 15px;
+}
+
+header nav ul{
+
+}
+
+header nav ul li{
+	display: inline-block;
+	margin-left: 20px;
+}
+
+a.active{
+	font-weight: 900;
+	background-color: #BA9EB0; 
+	color: #fff;
+}
+
+footer{
+	margin-top: 35px;
+	margin-bottom: 10px;
+	line-height: 14px;
+}
+footer p{
+	font-size: 12px;
+}
+
+/* shared */
+p{
+	margin-bottom: 10px;
+	font-size: 18px;
+}
+
+h2{
+	font-weight: 700;
+	margin-top: 30px;
+	margin-bottom: 5px;
+	font-size: 30px;
+}
+
+h3{
+	margin-top: 10px;
+	margin-bottom: 10px; 
+}
+ul{
+	padding-left: 20px;
+	list-style-type: square;
+	list-style-position: inside;
+}
+
+li{
+
+}
+/* home */
+body#home{
+	background-image: url("../img/10.gif");
+	background-size: 1459px 745px;
+}
+
+body#home header {
+	position: absolute;
+	top: 20%;
+	left: 10%;
+}
+
+
+body#home header h1 {
+	font-size: 50px;
+	line-height: 36px;
+	width: auto;
+}
+
+body#home header nav {
+	position: relative;
+
+}
+
+body#home footer {
+	position: absolute;
+	bottom: 0px;
+	left: 10px;
+}
+
+/* resources list */
+div#h2Container{
+	color: red;
+}
+
+ul.resources{
+	list-style-type:square;
+}
+
+/* post */
+div.centered{
+ 	width: 600px;
+ 	margin: 0 auto; 
+}
+
+div.centered header h1{
+	position: relative;
+	top: -30px;
+	font-size: 40px;
+}
+
+div.centered header h1 span{
+	font-size: 23px;
+	font-weight: bold;
+}
+
+div.centered header nav{
+	clear: both;
+	position: relative;
+	top: -40px;
+	left:-27px;
+	text-align: center;
+
+}
+
+div.centered header nav ul li{
+	display: inline-block;
+	margin-left: 14px;
+	font-size: 14px
+}
+
+article h1{
+	text-align: center;
+	font-size: 30px;
+
+}
+
+p.stamp{
+	text-align: center;
+	margin-top: 16px;
+	margin-bottom: 16px;
+	font-size: 14px;
+	color: ##7D7D7D
+}
+
+
+
+
+
+img{
+    display: block;
+    margin: 0 auto;
+}
+
+body#post footer{
+	margin-top:200px;
+}
+
+/* portfolio */
+body#portfolio p.stamp{
+	position: absolute;
+	left: 10px;
+}
+
+/* Blog */
+div.blogList h2{
+	margin-top: 50px;
+}
+
+div.blogList ul{
+	font-size: 15px;
+}
+
+span.date{
+	font-size: 15px;
+}
+
+/* about */
+div.dscrp{
+	width: 1400px;
+	display: inline-block;
+}
+div.ele p{
+	float: left;
+	width: 400px;
+	padding-top: 50px;
+}
+
+div.ele img{
+	float: left;
+	padding-left: 50px;
+	padding-top: 50px;
+
+}
+
+/* skills */
+div.skills{
+	display:inline-block;
+}
+
+div.subskills{
+	float:left;
+}

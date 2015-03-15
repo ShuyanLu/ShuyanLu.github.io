@@ -1,83 +1,98 @@
-* {
-	margin: 0;
-	padding: 0;
+/* shared */
+
+
+
+
+/* post */
+
+body{
+	font-family: 'Libre Baskerville', serif;
 }
 
-body {
-	margin: 0;
-	padding: 0;
-	color: #222;
-	background-color: white;
-	font-family: Palatino;
-	font-size: 14px;
-	line-height: 1.2;
-}
-
-
-
-body#home {
-	line-height: 0;
-}
-
-body#home nav ul li {
-	line-height: 16px;
-}
-
-/* Header */
-
-header {
-	margin-top: 35px;
-	margin-bottom: 35px;
-	width: 75%;
-	position: relative;
-}
-
-h1 {
-	font-size: 36px;
-	line-height: 30px;
-	font-style: italic;
-	width: auto;
-	margin-left: 10px;
-	margin-bottom: 10px;
-	font-weight: normal;
-}
-
-h1 span.sub {
-	font-size: 20px;
-	font-style: normal;
- 	color: #000;
-}
-
-
-
-/* nav */
-
-nav {
-	position: absolute;
-	top: 13px;
-	left: 500px;
+body#post {
+ border: 5px solid red;
 	width: 600px;
-	z-index: 10;
+	position: relative;
+	margin: 0 auto;
+
+	color: #000;
+	background-color: #ffffff;
+
+	font-family: 'Libre Baskerville', serif;
+	/*font-family: 'Roboto', sans-serif;
+	/*font-family: 'Buda', cursive;
+	font-family: 'Simonetta', cursive;
+	font-family: 'Glegoo', serif;
+	font-family: 'Lora', serif;
+	font-family: 'Droid Sans', sans-serif;*/
+	font-family: 'Tinos', serif;
+	font-size: 15px;
+   	line-height: 1.35;
+
 }
 
-ul {
-	margin-left: 10px;
-	margin-bottom: 14px;
-	padding-left: 15px;
-	list-style-type: square;
+header h1 {
+ border: 5px solid red;
+	margin-left: 0
+	font-family: 'Sacramento', cursive;
+	/*font-family: 'Stalemate', cursive;
+	font-family: 'Montez', cursive;
+	font-family: 'Italianno', cursive;*/
+	font-size: 36px
 }
 
-nav ul {
+
+header h1 span{
+	border: 5px solid red;
+	font-size: 20px
+}
+
+article h1{
+	border: 5px solid red;
+    width: 600px;
+    margin-top: 300px
+    padding-left: 300px;
+	display: table-cell;
+    text-align:center;
+}
+
+h1 a,
+h2 a,
+h3 a,
+h4 a,
+li a {
+	display: inline-block;
+	color: #000;
+}
+
+.timestamp {
+border-style: solid;
+border-width: 5px;
+    text-align:center;
+	font-size: 14px;
+	color: #aaa;
+	margin-bottom: 36px;
+}
+
+nav{
+
+}
+
+header nav {
+border: 5px solid red;
+	width: auto;
+	margin-bottom: 30px
+}
+
+header nav ul {
+border: 5px solid red;
 	margin-left: 0;
 	padding-left: 0;
 	list-style-type: none;
 }
 
-li {
-	margin-bottom: 3px;
-}
-
-nav ul li {
+header nav ul li {
+ border: 5px solid red;
 	display: inline;
 	display: inline-block;
 	margin-right: 20px;
@@ -85,18 +100,12 @@ nav ul li {
 	font-size: 16px;
 }
 
-
-/* Footer */
-
 footer {
-	margin-top: 35px;
-	margin-bottom: 10px;
-	font-size: 12px;
-	line-height: 14px;
+	margin-left: 10px;
 }
 
-
-
-
-
+/* resources list*/
+h2.resources{
+	font-size: 20px
+}
 

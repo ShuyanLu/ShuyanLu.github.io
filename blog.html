@@ -1,0 +1,998 @@
+<!doctype html>
+
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	
+	
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+			    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+	<title>Blog | vis4.net | Random thoughts on information visualization, data journalism and interactive graphics by Gregor Aisch. Find more about my data visualization work at &lt;a href=&quot;http://driven-by-data.net&quot;&gt;driven-by-data.net&lt;/a&gt;</title>
+    
+    <!--[if lte IE 9]>
+        <script src="http://vis4.net/blog/wp-content/themes/read-v4-2-9/js/html5shiv.js"></script>
+        <script src="http://vis4.net/blog/wp-content/themes/read-v4-2-9/js/selectivizr-min.js"></script>
+    <![endif]-->
+	
+		
+	<style type="text/css">/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for javascript
+ * CSS class: , CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2014 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.javascript .de1, .javascript .de2 {}
+.javascript  {font-family:monospace;}
+.javascript .imp {font-weight: bold; color: red;}
+.javascript li, .javascript .li1 {font-weight: normal; vertical-align:top;}
+.javascript .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.javascript .li2 {font-weight: bold; vertical-align:top;}
+.javascript .kw1 {color: #000066; font-weight: bold;}
+.javascript .kw2 {color: #003366; font-weight: bold;}
+.javascript .kw3 {color: #000066;}
+.javascript .kw5 {color: #FF0000;}
+.javascript .co1 {color: #006600; font-style: italic;}
+.javascript .co2 {color: #009966; font-style: italic;}
+.javascript .coMULTI {color: #006600; font-style: italic;}
+.javascript .es0 {color: #000099; font-weight: bold;}
+.javascript .br0 {color: #009900;}
+.javascript .sy0 {color: #339933;}
+.javascript .st0 {color: #3366CC;}
+.javascript .nu0 {color: #CC0000;}
+.javascript .me1 {color: #660066;}
+.javascript .ln-xtra, .javascript li.ln-xtra, .javascript div.ln-xtra {background-color: #ffc;}
+.javascript span.xtra { display:block; }
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for python
+ * CSS class: , CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2014 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.python .de1, .python .de2 {}
+.python  {font-family:monospace;}
+.python .imp {font-weight: bold; color: red;}
+.python li, .python .li1 {font-weight: normal; vertical-align:top;}
+.python .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.python .li2 {font-weight: bold; vertical-align:top;}
+.python .kw1 {color: #ff7700;font-weight:bold;}
+.python .kw2 {color: #008000;}
+.python .kw3 {color: #dc143c;}
+.python .kw4 {color: #0000cd;}
+.python .co1 {color: #808080; font-style: italic;}
+.python .coMULTI {color: #808080; font-style: italic;}
+.python .es0 {color: #000099; font-weight: bold;}
+.python .br0 {color: black;}
+.python .sy0 {color: #66cc66;}
+.python .st0 {color: #483d8b;}
+.python .nu0 {color: #ff4500;}
+.python .me1 {color: black;}
+.python .ln-xtra, .python li.ln-xtra, .python div.ln-xtra {background-color: #ffc;}
+.python span.xtra { display:block; }
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for bash
+ * CSS class: , CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2014 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.bash .de1, .bash .de2 {}
+.bash  {font-family:monospace;}
+.bash .imp {font-weight: bold; color: red;}
+.bash li, .bash .li1 {font-weight: normal; vertical-align:top;}
+.bash .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.bash .li2 {font-weight: bold; vertical-align:top;}
+.bash .kw1 {color: #000000; font-weight: bold;}
+.bash .kw2 {color: #c20cb9; font-weight: bold;}
+.bash .kw3 {color: #7a0874; font-weight: bold;}
+.bash .co0 {color: #666666; font-style: italic;}
+.bash .co1 {color: #800000;}
+.bash .co2 {color: #cc0000; font-style: italic;}
+.bash .co3 {color: #000000; font-weight: bold;}
+.bash .co4 {color: #666666;}
+.bash .es1 {color: #000099; font-weight: bold;}
+.bash .es2 {color: #007800;}
+.bash .es3 {color: #007800;}
+.bash .es4 {color: #007800;}
+.bash .es5 {color: #780078;}
+.bash .es_h {color: #000099; font-weight: bold;}
+.bash .br0 {color: #7a0874; font-weight: bold;}
+.bash .sy0 {color: #000000; font-weight: bold;}
+.bash .st0 {color: #ff0000;}
+.bash .st_h {color: #ff0000;}
+.bash .nu0 {color: #000000;}
+.bash .re0 {color: #007800;}
+.bash .re1 {color: #007800;}
+.bash .re2 {color: #007800;}
+.bash .re4 {color: #007800;}
+.bash .re5 {color: #660033;}
+.bash .ln-xtra, .bash li.ln-xtra, .bash div.ln-xtra {background-color: #ffc;}
+.bash span.xtra { display:block; }
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for rsplus
+ * CSS class: , CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2014 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.rsplus .de1, .rsplus .de2 {}
+.rsplus  {font-family:monospace;}
+.rsplus .imp {font-weight: bold; color: red;}
+.rsplus li, .rsplus .li1 {font-weight: normal; vertical-align:top;}
+.rsplus .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.rsplus .li2 {font-weight: bold; vertical-align:top;}
+.rsplus .kw1 {color: #0000FF; font-weight: bold;}
+.rsplus .kw2 {color: #0000FF; font-weight: bold;}
+.rsplus .kw3 {color: #CC9900; font-weight: bold;}
+.rsplus .kw4 {color: #0000FF; font-weight: bold;}
+.rsplus .kw5 {color: #0000FF; font-weight: bold;}
+.rsplus .kw6 {color: #0000FF; font-weight: bold;}
+.rsplus .kw7 {color: #0000FF; font-weight: bold;}
+.rsplus .kw8 {color: #0000FF; font-weight: bold;}
+.rsplus .co1 {color: #228B22;}
+.rsplus .es0 {color: #000099; font-weight: bold;}
+.rsplus .br0 {color: #080;}
+.rsplus .sy0 {color: #080;}
+.rsplus .st0 {color: #ff0000;}
+.rsplus .nu0 {color: #ff0000;}
+.rsplus .re0 {color:#A020F0;}
+.rsplus .ln-xtra, .rsplus li.ln-xtra, .rsplus div.ln-xtra {background-color: #ffc;}
+.rsplus span.xtra { display:block; }
+</style><link rel="alternate" type="application/rss+xml" title="vis4.net &raquo; Feed" href="http://vis4.net/feed/" />
+<link rel="alternate" type="application/rss+xml" title="vis4.net &raquo; Comments Feed" href="http://vis4.net/comments/feed/" />
+<link rel='stylesheet' id='print-css'  href='http://vis4.net/blog/wp-content/themes/read-v4-2-9/css/print.css' type='text/css' media='print' />
+<link rel='stylesheet' id='grid-css'  href='http://vis4.net/blog/wp-content/themes/read-v4-2-9/css/grid.css' type='text/css' media='all' />
+<link rel='stylesheet' id='normalize-css'  href='http://vis4.net/blog/wp-content/themes/read-v4-2-9/css/normalize.css' type='text/css' media='all' />
+<link rel='stylesheet' id='font-awesome-css'  href='http://vis4.net/blog/wp-content/themes/read-v4-2-9/css/font-awesome.css' type='text/css' media='all' />
+<link rel='stylesheet' id='google-code-prettify-css'  href='http://vis4.net/blog/wp-content/themes/read-v4-2-9/js/google-code-prettify/prettify.css' type='text/css' media='all' />
+<link rel='stylesheet' id='uniform-css'  href='http://vis4.net/blog/wp-content/themes/read-v4-2-9/css/uniform.default.css' type='text/css' media='all' />
+<link rel='stylesheet' id='flexslider-css'  href='http://vis4.net/blog/wp-content/themes/read-v4-2-9/css/flexslider.css' type='text/css' media='all' />
+<link rel='stylesheet' id='gamma-gallery-css'  href='http://vis4.net/blog/wp-content/themes/read-v4-2-9/css/gamma-gallery.css' type='text/css' media='all' />
+<link rel='stylesheet' id='main-css'  href='http://vis4.net/blog/wp-content/themes/read-v4-2-9/css/main.css' type='text/css' media='all' />
+<link rel='stylesheet' id='fancybox-css'  href='http://vis4.net/blog/wp-content/themes/read-v4-2-9/css/jquery.fancybox-1.3.4.css' type='text/css' media='all' />
+<link rel='stylesheet' id='wp-fix-css'  href='http://vis4.net/blog/wp-content/themes/read-v4-2-9/css/wp-fix.css' type='text/css' media='all' />
+<link rel='stylesheet' id='wp_geshi_wp-geshi-highlight-css'  href='http://vis4.net/blog/wp-content/plugins/wp-geshi-highlight//wp-geshi-highlight.css?ver=4.1.1' type='text/css' media='all' />
+<script type='text/javascript' src='http://vis4.net/blog/wp-includes/js/jquery/jquery.js?ver=1.11.1'></script>
+<script type='text/javascript' src='http://vis4.net/blog/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.2.1'></script>
+<script type='text/javascript' src='http://vis4.net/blog/wp-content/plugins/fd-footnotes/fdfootnotes.js?ver=1.3'></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://vis4.net/blog/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://vis4.net/blog/wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 4.1.1" />
+
+<link rel="stylesheet" type="text/css" href="http://vis4.net/blog/wp-content/themes/read-v4-2-9/style.css">
+
+		
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Roboto&subset=latin">
+
+
+
+<style type="text/css">
+a { color: #ce6607; }
+
+a:hover { color: #a35208; }
+
+.main-navigation ul .current_page_item > a, .main-navigation ul .current-menu-item > a { color: #cc3300; }
+
+h1.site-title, h1.site-title a { font-family: "Roboto", Georgia, serif; }
+
+h1, h2, h3, h4, h5, h6 { font-family: "Roboto", Georgia, serif; }
+
+.main-navigation ul li { font-family: "Roboto", Georgia, serif; }
+
+html { font-family: "Roboto", Georgia, serif; }
+</style>
+		<style type="text/css">
+html, body {
+   font-family: "Roboto", Helvetica, Arial, sans-serif;
+   font-size: 16px;
+   line-height: 1.5;
+   font-weight: 300;
+   color: #000;
+   background-color: #ffffff;
+}
+.blog-posts .entry-title, .portfolio-single .entry-title {
+   font-weight: 500;
+   letter-spacing: -1px;
+   font-size: 28px;
+   line-height: 1.2;
+}
+h1.site-title, h1.site-title a {
+   font-weight: 100;
+   letter-spacing: -1px;
+   font-size: 50px;
+   line-height: 1.1em;
+   margin: 30px auto 40px;
+   border-bottom: 0;
+}
+.site-header hgroup {
+   padding: 10px;
+}
+.site-description {
+  text-align: center;
+  max-width: 520px;
+  margin: 1em auto 2em;
+  font-weight: 300;
+  font-size: 1em;
+}
+.entry-header, .post .entry-title {
+   letter-spacing: -1px;
+   font-weight: 300;
+   line-height: 1.3;
+   margin-top: 20px;
+}
+.site-description a {
+  color: #000;
+  font-weight: 500;
+}
+.entry-content a.more-link {
+  font-weight: 400;
+  border-bottom: 0;
+  background: #fafafa;
+  letter-spacing: 0;
+color: #ce6607;
+}
+h1.site-title em { font-style: normal; color: #900; }
+h1.size-title span { font-style: normal; color: #999; }
+
+.blog-single .post .entry-content > p {
+  font-size: 16px;
+}
+
+.entry-content { 
+  max-width: 650px;
+  margin: 0 auto;
+}
+
+.entry-content h2 {
+  font-size: 20px;
+  font-weight: 500;
+}
+.wp-geshi-highlight-wrap5, 
+.wp-geshi-highlight-wrap4, 
+.wp-geshi-highlight-wrap3, 
+.wp-geshi-highlight-wrap2, 
+.wp-geshi-highlight-wrap,
+.wp-geshi-highlight,
+.wp-geshi-highlight div,
+.wp-geshi-highlight pre  {
+   border: 0!important;
+   box-shadow: none!important;
+   margin: 0!important;
+
+} 
+
+.wp-geshi-highlight {
+   border-radius: 4px;
+}
+
+.wp-geshi-highlight pre {
+    margin: 5px 0 0 0 !important;
+   font-size: 14px;
+   line-height: 21px;
+}
+
+.wp-geshi-highlight ol li:before {
+    content: ".";
+    float: left;
+    font-size: 20px;
+    font-weight: bold;
+    left: 20px;
+    position: absolute;
+}
+
+.wp-geshi-highlight pre span
+{
+font-weight: normal!important;
+font-size: 14px;
+}
+
+.wp-geshi-highlight div pre .co1 {
+   color: #999!important;
+}
+
+.wp-geshi-highlight div pre .me1 {
+   color: #909!important;
+}
+
+div.wp-geshi-highlight-wrap, div.wp-geshi-highlight-wrap2, div.wp-geshi-highlight-wrap3, div.wp-geshi-highlight-wrap4, div.wp-geshi-highlight-wrap5 {
+	border-radius: 3px!important;
+      
+}
+div.wp-geshi-highlight-wrap5 {
+ margin-top: 25px!important;
+ margin-bottom: 25px!important;
+}
+
+tt {
+   font-family: Consolas, monospace;
+font-size: 14px;
+color: #06a;
+}
+
+.wp-caption {
+max-width: inherit;
+padding: 0 0 10px;
+border: 0;
+}
+
+blockquote {
+   padding: 0ex 3em;
+}
+
+.single-post a.home-link {
+   color: #000;
+   font-weight: 100;
+   font-size: 28px;
+   position: relative;
+   top: 20px;
+}
+.single-post .site-header {
+   padding-bottom:0;
+}
+
+.footnotes {
+  font-size: 13px;
+  margin-top: 30px;
+  padding-top: 10px;
+  color: #999;
+}
+
+.footnotes:before {
+  border-top: 1px solid #ddd;
+  content: ' ';
+  display: block;
+  left: 0;
+  top: -5px;
+  width: 100px;
+  height: 1px;
+  position: relative;
+}
+
+
+.footnotes ol {
+   padding-left: 2em; 
+} 
+</style>
+<link href='http://fonts.googleapis.com/css?family=Roboto:100,300,500,400,700' rel='stylesheet' type='text/css'></head>
+
+<body class="blog">
+
+    <div id="page" class="hfeed site"> 
+        <header class="site-header wrapper" role="banner">
+			
+					<div class="row">
+			    <hgroup>
+					<h1 class="site-title">
+															<a href="http://vis4.net/" rel="home">vis4.net</a>
+													</h1>
+					<!-- end .site-title -->
+					
+					<h2 class="site-description">
+						Random thoughts on information visualization, data journalism and interactive graphics by Gregor Aisch. Find more about my data visualization work at <a href="http://driven-by-data.net">driven-by-data.net</a>					</h2>
+					<!-- end .site-description -->
+			    </hgroup>
+				
+								
+			    <nav id="site-navigation" class="main-navigation" role="navigation">
+					<ul id="nav" class="menu-custom"><li id="menu-item-3936" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-3380 current_page_item current_page_parent menu-item-3936"><a href="http://vis4.net/blog/">Blog</a></li>
+<li id="menu-item-3938" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3938"><a href="http://vis4.net/color/">Color</a></li>
+<li id="menu-item-3950" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3950"><a href="http://vis4.net/code/">Code</a></li>
+<li id="menu-item-3937" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3937"><a href="http://vis4.net/cartography/">Cartography</a></li>
+<li id="menu-item-3951" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3951"><a href="http://vis4.net/advice/">Advice</a></li>
+<li id="menu-item-4009" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4009"><a href="http://vis4.net/archive/">Archive</a></li>
+</ul>								<script>
+									var nav_menu_search = '<li class="nav-menu-search"><form id="search-form" role="search" method="get" action="http://vis4.net/"><label class="screen-reader-text" for="search">Search</label><input type="text" id="search" name="s" title="Enter keyword" value="" required="required"><input type="submit" id="search-submit" title="Search it" value="&#8594;"></form></li>';
+									
+									(function($)
+									{
+										$( '#site-navigation > ul' ).append( nav_menu_search );
+										
+									})(jQuery);
+								</script>
+										    </nav>
+			    <!-- end #site-navigation -->
+			</div>
+			<!-- end .row -->
+        </header>
+        <!-- end .site-header -->
+		
+				
+        <section id="main" class="middle wrapper">
+			<div class="row row-fluid ">
+<div id="primary" class="site-content">
+	<div id="content" role="main">
+		<div class="blog-posts readable-content">
+			<article id="post-4721" class="post-4721 post type-post status-publish format-standard hentry category-general clearfix">
+	<header class="entry-header">
+		<h1 class="entry-title">
+						<a  rel="bookmark" href="http://vis4.net/blog/posts/seven-features-youll-wantin-your-next-charting-tool/">Seven Features You&#8217;ll Want<br />In Your Next Charting Tool</a>
+		</h1>
+		<!-- end .entry-title -->
+	</header>
+	<!-- end .entry-header -->
+	
+	<footer class="entry-meta">
+		<span class="post-category">
+			posted in <a href="http://vis4.net/general/" rel="category tag">general</a>		</span>
+		<!-- end .post-category -->
+		
+		<span class="post-date">
+			on <a href="http://vis4.net/blog/posts/seven-features-youll-wantin-your-next-charting-tool/" title="17:03" rel="bookmark"><time class="entry-date" datetime="2012-11-09T23:15:57+00:00">07/03/2015</time></a>
+		</span>
+		<!-- end .post-date -->
+		
+		<span class="by-author"> by			<span class="author vcard">
+				<a class="url fn n" href="http://vis4.net/blog/posts/author/admin/" title="View all posts by Gregor Aisch" rel="author">Gregor Aisch</a>
+			</span>
+			<!-- end .author -->
+		</span>
+		<!-- end .by-author -->
+		
+		<span class="comments-link">
+			<a href="http://vis4.net/blog/posts/seven-features-youll-wantin-your-next-charting-tool/#respond" title="Comment on Seven Features You&#8217;ll WantIn Your Next Charting Tool">0 Comment</a>		</span>
+		<!-- end .comments-link -->
+		
+			</footer>
+	<!-- end .entry-meta -->
+	
+		
+	<div class="entry-content clearfix">
+		<p style="text-align: center;"><em>This is a transcript of my lightning talk at <a href="http://ire.org/conferences/nicar2015/">NICAR 2015</a> yesterday.<br />
+Please give the animated GIFs some time to load :)</em></p>
+<p><img class=" aligncenter" src="http://vis4.net/blog/wp-content/uploads/2015/03/92b2940b60eb99770c72a7d9b89fcf18.png" alt="" /></p>
+<p>Charting tools are great.</p>
+<p>They let us create charts and visualizations without writing code, and in a fraction of the time it would take to do in tools like Adobe Illustrator.</p>
+<p> <a href="http://vis4.net/blog/posts/seven-features-youll-wantin-your-next-charting-tool/#more-4721" class="more-link">I want to see the features! →</a></p>
+		
+			</div>
+	<!-- end .entry-content -->
+</article>
+<!-- end .post --><article id="post-4666" class="post-4666 post type-post status-publish format-standard has-post-thumbnail hentry category-general category-visualized tag-wordcloud clearfix">
+	<header class="entry-header">
+		<h1 class="entry-title">
+						<a  rel="bookmark" href="http://vis4.net/blog/posts/when-its-ok-to-use-word-clouds/">When It&#8217;s Ok to Use Word Clouds</a>
+		</h1>
+		<!-- end .entry-title -->
+	</header>
+	<!-- end .entry-header -->
+	
+	<footer class="entry-meta">
+		<span class="post-category">
+			posted in <a href="http://vis4.net/general/" rel="category tag">general</a>, <a href="http://vis4.net/visualized/" rel="category tag">visualized</a>		</span>
+		<!-- end .post-category -->
+		
+		<span class="post-date">
+			on <a href="http://vis4.net/blog/posts/when-its-ok-to-use-word-clouds/" title="18:30" rel="bookmark"><time class="entry-date" datetime="2012-11-09T23:15:57+00:00">30/01/2015</time></a>
+		</span>
+		<!-- end .post-date -->
+		
+		<span class="by-author"> by			<span class="author vcard">
+				<a class="url fn n" href="http://vis4.net/blog/posts/author/gka/" title="View all posts by Gregor" rel="author">Gregor</a>
+			</span>
+			<!-- end .author -->
+		</span>
+		<!-- end .by-author -->
+		
+		<span class="comments-link">
+			<a href="http://vis4.net/blog/posts/when-its-ok-to-use-word-clouds/#respond" title="Comment on When It&#8217;s Ok to Use Word Clouds">0 Comment</a>		</span>
+		<!-- end .comments-link -->
+		
+			</footer>
+	<!-- end .entry-meta -->
+	
+					<div class="featured-image">
+					<img width="1045" height="354" src="http://vis4.net/blog/wp-content/uploads/2015/01/Screen-Shot-2015-01-30-at-12.33.23-PM.png" class="attachment-blog_feat_img wp-post-image" alt="When It&#8217;s Ok to Use Word Clouds" title="" />				</div>
+				<!-- end .featured-image -->
+				
+	<div class="entry-content clearfix">
+		<p dir="ltr"><strong>tl;dr</strong><br />
+<em>It&#8217;s ok to use word clouds if your goal is to encourage reading of a large set of otherwise unrelated words that are connected to one or two interesting values (and word count in a text doesn&#8217;t qualify as interesting).</em></p>
+<blockquote class="twitter-tweet" lang="en"><p>In <a href="https://twitter.com/hashtag/datavis?src=hash">#datavis</a>, no rule&#8217;s without exception. On rare occasions you can even use word clouds :) <a href="http://t.co/9smBlavIIZ">http://t.co/9smBlavIIZ</a> <a href="http://t.co/o9YTvMG1kM">pic.twitter.com/o9YTvMG1kM</a></p>
+<p>— gregor aisch (@driven_by_data) <a href="https://twitter.com/driven_by_data/status/560894208870195201">January 29, 2015</a></p></blockquote>
+<p dir="ltr">This I <a href="https://twitter.com/driven_by_data/status/560894208870195201">tweeted yesterday</a> and now I feel that if I encourage the (dangerous) use of word clouds, I have to explain this exception in a little more detail. Why is it sometimes ok to use a widely rejected visualization method, and most times not?</p>
+<p dir="ltr"> <a href="http://vis4.net/blog/posts/when-its-ok-to-use-word-clouds/#more-4666" class="more-link">Continue reading <span class="meta-nav">&rarr;</span></a></p>
+		
+			</div>
+	<!-- end .entry-content -->
+</article>
+<!-- end .post --><article id="post-4547" class="post-4547 post type-post status-publish format-standard hentry category-cartography tag-cartocss tag-mapnik tag-mercator tag-tilemaps tag-tilemill tag-tilestache clearfix">
+	<header class="entry-header">
+		<h1 class="entry-title">
+						<a  rel="bookmark" href="http://vis4.net/blog/posts/no-more-mercator-tiles/">Look, Ma, No More Mercator Tiles</a>
+		</h1>
+		<!-- end .entry-title -->
+	</header>
+	<!-- end .entry-header -->
+	
+	<footer class="entry-meta">
+		<span class="post-category">
+			posted in <a href="http://vis4.net/cartography/" rel="category tag">Cartography</a>		</span>
+		<!-- end .post-category -->
+		
+		<span class="post-date">
+			on <a href="http://vis4.net/blog/posts/no-more-mercator-tiles/" title="21:06" rel="bookmark"><time class="entry-date" datetime="2012-11-09T23:15:57+00:00">06/01/2015</time></a>
+		</span>
+		<!-- end .post-date -->
+		
+		<span class="by-author"> by			<span class="author vcard">
+				<a class="url fn n" href="http://vis4.net/blog/posts/author/admin/" title="View all posts by Gregor Aisch" rel="author">Gregor Aisch</a>
+			</span>
+			<!-- end .author -->
+		</span>
+		<!-- end .by-author -->
+		
+		<span class="comments-link">
+			<a href="http://vis4.net/blog/posts/no-more-mercator-tiles/#comments" title="Comment on Look, Ma, No More Mercator Tiles">21 Comments</a>		</span>
+		<!-- end .comments-link -->
+		
+			</footer>
+	<!-- end .entry-meta -->
+	
+		
+	<div class="entry-content clearfix">
+		<p>Using open source tools it is now super easy to make your own map tiles, and with a little extra work you can render them in whatever map projection you want. No more excuses to use Mercator! For example, <a title="Where Working Women Are Most Common" href="http://www.nytimes.com/interactive/2015/01/06/upshot/where-working-women-are-most-common.html?rref=upshot">here is a map</a> we published today at The Upshot. It shows where prime-age women are working more or less then average, and includes data from county-level in the overview map down to every census tract once you zoom in. And all is nicely projected in <a href="http://en.wikipedia.org/wiki/Albers_projection">Albers Equal-Area Conic</a>, a projection widely adopted as standard for U.S. maps.</p>
+<p><a title="Where Working Women Are Most Common" href="http://www.nytimes.com/interactive/2015/01/06/upshot/where-working-women-are-most-common.html?rref=upshot"><img src="http://vis4.net/blog/wp-content/uploads/2015/01/35b642ff6b3c1acd1e2813e252d22693.png" alt="" /></a><br />
+ <a href="http://vis4.net/blog/posts/no-more-mercator-tiles/#more-4547" class="more-link">here&#8217;s how you do it</a></p>
+		
+			</div>
+	<!-- end .entry-content -->
+</article>
+<!-- end .post --><article id="post-4213" class="post-4213 post type-post status-publish format-standard hentry category-code category-data-journalism clearfix">
+	<header class="entry-header">
+		<h1 class="entry-title">
+						<a  rel="bookmark" href="http://vis4.net/blog/posts/analyzing-bias-in-election-polls-with-r/">Analyzing bias in opinion polls with R</a>
+		</h1>
+		<!-- end .entry-title -->
+	</header>
+	<!-- end .entry-header -->
+	
+	<footer class="entry-meta">
+		<span class="post-category">
+			posted in <a href="http://vis4.net/code/" rel="category tag">Code</a>, <a href="http://vis4.net/data-journalism/" rel="category tag">Data Journalism</a>		</span>
+		<!-- end .post-category -->
+		
+		<span class="post-date">
+			on <a href="http://vis4.net/blog/posts/analyzing-bias-in-election-polls-with-r/" title="23:37" rel="bookmark"><time class="entry-date" datetime="2012-11-09T23:15:57+00:00">20/09/2013</time></a>
+		</span>
+		<!-- end .post-date -->
+		
+		<span class="by-author"> by			<span class="author vcard">
+				<a class="url fn n" href="http://vis4.net/blog/posts/author/admin/" title="View all posts by Gregor Aisch" rel="author">Gregor Aisch</a>
+			</span>
+			<!-- end .author -->
+		</span>
+		<!-- end .by-author -->
+		
+		<span class="comments-link">
+			<a href="http://vis4.net/blog/posts/analyzing-bias-in-election-polls-with-r/#comments" title="Comment on Analyzing bias in opinion polls with R">21 Comments</a>		</span>
+		<!-- end .comments-link -->
+		
+			</footer>
+	<!-- end .entry-meta -->
+	
+		
+	<div class="entry-content clearfix">
+		<blockquote><p>Never trust a statistic that you<br />
+haven’t visualized yourself.</p></blockquote>
+<p>It&#8217;s election time in Germany and, as usual, there are tons of opinion polls telling us who is going to win the election anyway. It <a href="https://twitter.com/driven_by_data/status/381012625838329856">is debatable</a> whether or not pre-election polls are healthy for our democracy in general, but at least everybody agrees that the polls should be kind of neutral. And if they are not, the institutes publishing the polls should be blamed publicly.</p>
+<p>But how do we know if an institute publishes &#8216;biased&#8217; polls? You guessed it: with data. More precisely: with data and the unique power of data visualization.<br />
+ <a href="http://vis4.net/blog/posts/analyzing-bias-in-election-polls-with-r/#more-4213" class="more-link">Continue reading <span class="meta-nav">&rarr;</span></a></p>
+		
+			</div>
+	<!-- end .entry-content -->
+</article>
+<!-- end .post --><article id="post-4101" class="post-4101 post type-post status-publish format-standard hentry category-color clearfix">
+	<header class="entry-header">
+		<h1 class="entry-title">
+						<a  rel="bookmark" href="http://vis4.net/blog/posts/mastering-multi-hued-color-scales/">Mastering Multi-hued<br/> Color Scales with Chroma.js</a>
+		</h1>
+		<!-- end .entry-title -->
+	</header>
+	<!-- end .entry-header -->
+	
+	<footer class="entry-meta">
+		<span class="post-category">
+			posted in <a href="http://vis4.net/color/" rel="category tag">Color</a>		</span>
+		<!-- end .post-category -->
+		
+		<span class="post-date">
+			on <a href="http://vis4.net/blog/posts/mastering-multi-hued-color-scales/" title="12:00" rel="bookmark"><time class="entry-date" datetime="2012-11-09T23:15:57+00:00">09/09/2013</time></a>
+		</span>
+		<!-- end .post-date -->
+		
+		<span class="by-author"> by			<span class="author vcard">
+				<a class="url fn n" href="http://vis4.net/blog/posts/author/admin/" title="View all posts by Gregor Aisch" rel="author">Gregor Aisch</a>
+			</span>
+			<!-- end .author -->
+		</span>
+		<!-- end .by-author -->
+		
+		<span class="comments-link">
+			<a href="http://vis4.net/blog/posts/mastering-multi-hued-color-scales/#comments" title="Comment on Mastering Multi-hued Color Scales with Chroma.js">6 Comments</a>		</span>
+		<!-- end .comments-link -->
+		
+			</footer>
+	<!-- end .entry-meta -->
+	
+		
+	<div class="entry-content clearfix">
+		<p class="lead ">Probably one of the most useful things about Cynthia Brewers <a href="http://colorbrewer2.com/js/">color advice for cartography</a> are the multihue color schemes. This post explains how you can create your own, using two new features of <a href="http://github.com/gka/chroma.js" target="_blank">chroma.js</a>: Bezier interpolation and automatic lightness correction.</p>
+<p> <a href="http://vis4.net/blog/posts/mastering-multi-hued-color-scales/#more-4101" class="more-link">Continue reading <span class="meta-nav">&rarr;</span></a></p>
+		
+			</div>
+	<!-- end .entry-content -->
+</article>
+<!-- end .post --><article id="post-3952" class="post-3952 post type-post status-publish format-standard hentry category-code clearfix">
+	<header class="entry-header">
+		<h1 class="entry-title">
+						<a  rel="bookmark" href="http://vis4.net/blog/posts/introducing-dataset/">Start using databases, today!</a>
+		</h1>
+		<!-- end .entry-title -->
+	</header>
+	<!-- end .entry-header -->
+	
+	<footer class="entry-meta">
+		<span class="post-category">
+			posted in <a href="http://vis4.net/code/" rel="category tag">Code</a>		</span>
+		<!-- end .post-category -->
+		
+		<span class="post-date">
+			on <a href="http://vis4.net/blog/posts/introducing-dataset/" title="14:20" rel="bookmark"><time class="entry-date" datetime="2012-11-09T23:15:57+00:00">23/04/2013</time></a>
+		</span>
+		<!-- end .post-date -->
+		
+		<span class="by-author"> by			<span class="author vcard">
+				<a class="url fn n" href="http://vis4.net/blog/posts/author/admin/" title="View all posts by Gregor Aisch" rel="author">Gregor Aisch</a>
+			</span>
+			<!-- end .author -->
+		</span>
+		<!-- end .by-author -->
+		
+		<span class="comments-link">
+			<a href="http://vis4.net/blog/posts/introducing-dataset/#comments" title="Comment on Start using databases, today!">1 Comment</a>		</span>
+		<!-- end .comments-link -->
+		
+			</footer>
+	<!-- end .entry-meta -->
+	
+		
+	<div class="entry-content clearfix">
+		<div style="font-style: italic; text-align: center; background: #f4eded; padding: 10px;">This post is written to welcome <a href="http://dataset.rtfd.org">dataset</a>, a new library to simplify working with databases in Python.</div>
+<p>Let&#8217;s face it. Relational databases, such as MySQL, SQLite and PostgreSQL, are pretty cool – but nobody actually uses them. At least not in the day-to-day work with small to medium scale datasets. But <em>why</em> is that? Why do we see an awful lot of data stored in static files in CSV or JSON format, even though</p>
+<ul>
+<li>they are <strong>hard to query</strong> (you need to write a custom script every time)</li>
+<li>they are <strong>messy</strong>, as they cannot store meta data such as data types</li>
+<li>it is a <strong>pain to update</strong> them incrementally, say if some record has changed</li>
+</ul>
+<p> <a href="http://vis4.net/blog/posts/introducing-dataset/#more-3952" class="more-link">click to read the answer :)</a></p>
+		
+			</div>
+	<!-- end .entry-content -->
+</article>
+<!-- end .post --><article id="post-3888" class="post-3888 post type-post status-publish format-standard has-post-thumbnail hentry category-color category-tutorials tag-r clearfix">
+	<header class="entry-header">
+		<h1 class="entry-title">
+						<a  rel="bookmark" href="http://vis4.net/blog/posts/playing-with-cie-lab-colors-in-r/">Playing with CIE Lab Colors in R</a>
+		</h1>
+		<!-- end .entry-title -->
+	</header>
+	<!-- end .entry-header -->
+	
+	<footer class="entry-meta">
+		<span class="post-category">
+			posted in <a href="http://vis4.net/color/" rel="category tag">Color</a>, <a href="http://vis4.net/tutorials/" rel="category tag">tutorials</a>		</span>
+		<!-- end .post-category -->
+		
+		<span class="post-date">
+			on <a href="http://vis4.net/blog/posts/playing-with-cie-lab-colors-in-r/" title="14:13" rel="bookmark"><time class="entry-date" datetime="2012-11-09T23:15:57+00:00">24/01/2013</time></a>
+		</span>
+		<!-- end .post-date -->
+		
+		<span class="by-author"> by			<span class="author vcard">
+				<a class="url fn n" href="http://vis4.net/blog/posts/author/admin/" title="View all posts by Gregor Aisch" rel="author">Gregor Aisch</a>
+			</span>
+			<!-- end .author -->
+		</span>
+		<!-- end .by-author -->
+		
+		<span class="comments-link">
+			<a href="http://vis4.net/blog/posts/playing-with-cie-lab-colors-in-r/#comments" title="Comment on Playing with CIE Lab Colors in R">1 Comment</a>		</span>
+		<!-- end .comments-link -->
+		
+			</footer>
+	<!-- end .entry-meta -->
+	
+					<div class="featured-image">
+					<img width="448" height="106" src="http://vis4.net/blog/wp-content/uploads/2013/01/screenshot-2013-01-24-um-13.57.03.png" class="attachment-blog_feat_img wp-post-image" alt="Playing with CIE Lab Colors in R" title="" />				</div>
+				<!-- end .featured-image -->
+				
+	<div class="entry-content clearfix">
+		<p>Currently I&#8217;m taking the wonderful course <a href="https://class.coursera.org/compdata-002/class/index">Computing for Data Analysis</a> on <a href="https://coursera.org/">Coursera</a>, and in this weeks lecture I learned about how to define custom color palettes in R.</p>
+<p>You can do this using the <code>colorRampPalette()</code> function that comes with the <strong>grDevices</strong> package. Calling this function will return another function that you can call to generate the color palette.</p>
+<p> <a href="http://vis4.net/blog/posts/playing-with-cie-lab-colors-in-r/#more-3888" class="more-link">Continue reading <span class="meta-nav">&rarr;</span></a></p>
+		
+			</div>
+	<!-- end .entry-content -->
+</article>
+<!-- end .post --><article id="post-3870" class="post-3870 post type-post status-publish format-standard has-post-thumbnail hentry category-advice clearfix">
+	<header class="entry-header">
+		<h1 class="entry-title">
+						<a  rel="bookmark" href="http://vis4.net/blog/posts/forget-about-parties-show-the-coalitions/">Forget About Parties,<br/> Visualize the Coalitions!</a>
+		</h1>
+		<!-- end .entry-title -->
+	</header>
+	<!-- end .entry-header -->
+	
+	<footer class="entry-meta">
+		<span class="post-category">
+			posted in <a href="http://vis4.net/advice/" rel="category tag">Advice</a>		</span>
+		<!-- end .post-category -->
+		
+		<span class="post-date">
+			on <a href="http://vis4.net/blog/posts/forget-about-parties-show-the-coalitions/" title="12:30" rel="bookmark"><time class="entry-date" datetime="2012-11-09T23:15:57+00:00">21/01/2013</time></a>
+		</span>
+		<!-- end .post-date -->
+		
+		<span class="by-author"> by			<span class="author vcard">
+				<a class="url fn n" href="http://vis4.net/blog/posts/author/admin/" title="View all posts by Gregor Aisch" rel="author">Gregor Aisch</a>
+			</span>
+			<!-- end .author -->
+		</span>
+		<!-- end .by-author -->
+		
+		<span class="comments-link">
+			<span>Comments Off</span>		</span>
+		<!-- end .comments-link -->
+		
+			</footer>
+	<!-- end .entry-meta -->
+	
+					<div class="featured-image">
+					<img width="940" height="477" src="http://vis4.net/blog/wp-content/uploads/2013/01/koalitionen-940.png" class="attachment-blog_feat_img wp-post-image" alt="Forget About Parties,&lt;br/&gt; Visualize the Coalitions!" title="" />				</div>
+				<!-- end .featured-image -->
+				
+	<div class="entry-content clearfix">
+		<p>If I was asked for the <em>golden rule of information visualization</em>, it would be:<b><br />
+</b></p>
+<p dir="ltr"><strong>“Show the most important thing first!”</strong></p>
+<p>Not second or third, but first! And what is the most important thing to show about the outcome of an election? Who actually won.</p>
+<p>In political systems like Germany’s, where we have no party getting anywhere near 50% of the vote, the usual one-bar-per-party bar charts totally fail to answer this most important question.</p>
+<p>For example, in the following chart we can see the number of seats won by different political parties &#8211; but this does not tell us who won the election.<br />
+ <a href="http://vis4.net/blog/posts/forget-about-parties-show-the-coalitions/#more-3870" class="more-link">Continue reading <span class="meta-nav">&rarr;</span></a></p>
+		
+			</div>
+	<!-- end .entry-content -->
+</article>
+<!-- end .post --><article id="post-3848" class="post-3848 post type-post status-publish format-standard has-post-thumbnail hentry category-cartography category-code clearfix">
+	<header class="entry-header">
+		<h1 class="entry-title">
+						<a  rel="bookmark" href="http://vis4.net/blog/posts/map-symbol-clustering-k-means-vs-noverlap/">Map Symbol Clustering —<br/> k-Means vs. noverlap</a>
+		</h1>
+		<!-- end .entry-title -->
+	</header>
+	<!-- end .entry-header -->
+	
+	<footer class="entry-meta">
+		<span class="post-category">
+			posted in <a href="http://vis4.net/cartography/" rel="category tag">Cartography</a>, <a href="http://vis4.net/code/" rel="category tag">Code</a>		</span>
+		<!-- end .post-category -->
+		
+		<span class="post-date">
+			on <a href="http://vis4.net/blog/posts/map-symbol-clustering-k-means-vs-noverlap/" title="12:00" rel="bookmark"><time class="entry-date" datetime="2012-11-09T23:15:57+00:00">05/12/2012</time></a>
+		</span>
+		<!-- end .post-date -->
+		
+		<span class="by-author"> by			<span class="author vcard">
+				<a class="url fn n" href="http://vis4.net/blog/posts/author/admin/" title="View all posts by Gregor Aisch" rel="author">Gregor Aisch</a>
+			</span>
+			<!-- end .author -->
+		</span>
+		<!-- end .by-author -->
+		
+		<span class="comments-link">
+			<a href="http://vis4.net/blog/posts/map-symbol-clustering-k-means-vs-noverlap/#comments" title="Comment on Map Symbol Clustering — k-Means vs. noverlap">2 Comments</a>		</span>
+		<!-- end .comments-link -->
+		
+			</footer>
+	<!-- end .entry-meta -->
+	
+					<div class="featured-image">
+					<img width="314" height="138" src="http://vis4.net/blog/wp-content/uploads/2012/12/screenshot-2012-12-05-um-11.58.55.png" class="attachment-blog_feat_img wp-post-image" alt="Map Symbol Clustering —&lt;br/&gt; k-Means vs. noverlap" title="" />				</div>
+				<!-- end .featured-image -->
+				
+	<div class="entry-content clearfix">
+		<p>While working on the soon-to-be-released <a href="/blog/posts/piwik-maps-2/">map widget</a> for <a href="http://piwik.org">Piwik</a> (heck, it&#8217;s been over two years since the first sketches!) I implemented two map symbol clustering algorithms into <a href="http://kartograph.org">Kartograph.js</a>. Last year <a href="http://vis4.net/blog/posts/clean-your-symbol-maps/">I wrote about</a> why this is a good idea, and now I turned that advice into re-usable code.</p>
+<p>In this post I want to share my findings after experimenting with different clustering techniques.<br />
+ <a href="http://vis4.net/blog/posts/map-symbol-clustering-k-means-vs-noverlap/#more-3848" class="more-link">Continue reading <span class="meta-nav">&rarr;</span></a></p>
+		
+			</div>
+	<!-- end .entry-content -->
+</article>
+<!-- end .post --><article id="post-3778" class="post-3778 post type-post status-publish format-standard has-post-thumbnail hentry category-advice clearfix">
+	<header class="entry-header">
+		<h1 class="entry-title">
+						<a  rel="bookmark" href="http://vis4.net/blog/posts/choose-your-icons-wisely/">Making Pictographs?<BR /> Choose Your Icons Wisely!</a>
+		</h1>
+		<!-- end .entry-title -->
+	</header>
+	<!-- end .entry-header -->
+	
+	<footer class="entry-meta">
+		<span class="post-category">
+			posted in <a href="http://vis4.net/advice/" rel="category tag">Advice</a>		</span>
+		<!-- end .post-category -->
+		
+		<span class="post-date">
+			on <a href="http://vis4.net/blog/posts/choose-your-icons-wisely/" title="12:43" rel="bookmark"><time class="entry-date" datetime="2012-11-09T23:15:57+00:00">24/10/2012</time></a>
+		</span>
+		<!-- end .post-date -->
+		
+		<span class="by-author"> by			<span class="author vcard">
+				<a class="url fn n" href="http://vis4.net/blog/posts/author/admin/" title="View all posts by Gregor Aisch" rel="author">Gregor Aisch</a>
+			</span>
+			<!-- end .author -->
+		</span>
+		<!-- end .by-author -->
+		
+		<span class="comments-link">
+			<span>Comments Off</span>		</span>
+		<!-- end .comments-link -->
+		
+			</footer>
+	<!-- end .entry-meta -->
+	
+					<div class="featured-image">
+					<img width="400" height="153" src="http://vis4.net/blog/wp-content/uploads/2012/10/soldiers.png" class="attachment-blog_feat_img wp-post-image" alt="Making Pictographs?&lt;BR /&gt; Choose Your Icons Wisely!" title="" />				</div>
+				<!-- end .featured-image -->
+				
+	<div class="entry-content clearfix">
+		<p>Icons are widely used in infographics such as maps and pictographs. So as a visualization designer, you&#8217;ll get to the point where you must choose which icons or pictograms to use. But please, <a href="http://www.youtube.com/watch?v=oF2UrYSDb3k">choose wisely</a>.</p>
+<p>The reason I got to this topic is a recent post by Naomi Robbins about <a href="http://www.forbes.com/sites/naomirobbins/2012/10/10/two-opinions-on-the-usefulness-of-pictographs/">two opinions on the usefulness of pictographs</a>. She reminded my of a critical article by Stephen Few, who stated that unit charts (another term for pictographs) <a href="http://www.perceptualedge.com/articles/visual_business_intelligence/unit_charts_are_for_kids.pdf">are for kids</a>, but not for serious information displays. My biggest complaint about his article is that he picked some of the worst imaginable examples to back up his arguments.</p>
+<p> <a href="http://vis4.net/blog/posts/choose-your-icons-wisely/#more-3778" class="more-link">read how to do it better..</a></p>
+		
+			</div>
+	<!-- end .entry-content -->
+</article>
+<!-- end .post -->			
+						<!-- post nav -->
+			<nav class="navigation" role="navigation">
+				<div class="nav-previous"><a href="http://vis4.net/blog/page/2/" >&#8592; Older posts</a></div>
+				
+				<div class="nav-next"></div>
+			</nav>
+			<!-- end post nav -->
+				</div>
+		<!-- end .blog-posts -->
+	</div>
+	<!-- end #content -->
+</div>
+<!-- end #primary -->
+
+			</div>
+			<!-- end .row .row-fluid -->
+        </section>
+        <!-- end #main -->
+		
+        <footer class="site-footer wrapper" role="contentinfo">
+			<div class="row">
+				<div id="supplementary" class="row-fluid">
+					<div class="widget-area span4" role="complementary">
+	<aside id="text-6" class="widget widget_text"><h3 class="widget-title">About vis4.net</h3>			<div class="textwidget"><p>Hello and welcome, you landed at vis4.net, the personal blog of Gregor Aisch, a graphics editor at The New York Times, who is fascinated by information visualization, dry color theory and map projections.</p>
+
+<div>Find more of my stuff at <a href="http://driven-by-data.net">driven-by-data.net</a>, on <a href="https://github.com/gka">github</a>, or follow me on 
+<a href="http://twitter.com/driven_by_data">Twitter</a>. </div>
+		</aside></div>
+<!-- end .widget-area -->
+
+<div class="widget-area span4" role="complementary">
+	<aside id="nav_menu-3" class="widget widget_nav_menu"><h3 class="widget-title">Featured articles</h3><div class="menu-featured-container"><ul id="menu-featured" class="menu"><li id="menu-item-4701" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-4701"><a href="http://vis4.net/blog/posts/when-its-ok-to-use-word-clouds/">When It’s Ok to Use Word Clouds</a></li>
+<li id="menu-item-4700" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-4700"><a href="http://vis4.net/blog/posts/no-more-mercator-tiles/">Creating Tile Maps Without Using Mercator</a></li>
+<li id="menu-item-4085" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-4085"><a href="http://vis4.net/blog/posts/avoid-equidistant-hsv-colors/">How To Avoid Equidistant RGB/HSV Colors</a></li>
+<li id="menu-item-4084" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-4084"><a href="http://vis4.net/blog/posts/goodbye-redgreen-scales/">Say Goodbye to Red-Green Color Scales</a></li>
+<li id="menu-item-4492" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-4492"><a href="https://vis4.net/blog/posts/mastering-multi-hued-color-scales/">Mastering Multi-hued Color Scales with Chroma.js</a></li>
+<li id="menu-item-4083" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-4083"><a href="http://vis4.net/blog/posts/choropleth-maps/">Take Care of your Choropleth Maps</a></li>
+<li id="menu-item-4493" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-4493"><a href="http://vis4.net/blog/posts/choose-your-icons-wisely/">Making Pictographs? Choose Your Icons Wisely!</a></li>
+</ul></div></aside><aside id="search-3" class="widget widget_search"><h3 class="widget-title">Search</h3><form role="search" id="searchform" method="get" action="http://vis4.net/">
+	<div>
+		<label class="screen-reader-text" for="s">Search for:</label>
+		
+		<input type="text" id="s" name="s" value="" required="required" placeholder="Enter keyword...">
+		
+		<input type="submit" id="searchsubmit" value="Search">
+	</div>
+</form></aside></div>
+<!-- end .widget-area -->
+
+<div class="widget-area span4" role="complementary">
+	<aside id="linkcat-2" class="widget widget_links"><h3 class="widget-title">Worth reading</h3>
+	<ul class='xoxo blogroll'>
+<li><a href="http://www.infosthetics.com/" title="Infosthetics">Andrew Vande Moere</a>
+Infosthetics</li>
+<li><a href="http://mapsforhumans.com" title="Maps for humans">Andrey Karmatsky</a>
+Maps for humans</li>
+<li><a href="http://visualisingdata.com/" title="Visualising Data">Andy Kirk</a>
+Visualising Data</li>
+<li><a href="http://www.viewsoftheworld.net/" title="Views of the world">Benjamin D. Hennig</a>
+Views of the world</li>
+<li><a href="http://thewhyaxis.info/" title="The Why Axis">Bryan Connor</a>
+The Why Axis</li>
+<li><a href="http://www.storytellingwithdata.com/" title="Storytelling with data">Cole Nussbaumer</a>
+Storytelling with data</li>
+<li><a href="http://blog.dwtkns.com/" title="himself">Derek Watkins</a>
+himself</li>
+<li><a href="http://blog.diegovalle.net/" title="himself">Diego Valle-Jones</a>
+himself</li>
+<li><a href="http://fellinlovewithdata.com/" title="Fell in love with data">Enrico Bertini</a>
+Fell in love with data</li>
+<li><a href="http://jeromecukier.net" title="himself">Jerome Cukier</a>
+himself</li>
+<li><a href="http://vallandingham.me/" target="_blank">Jim Vallandingham</a></li>
+<li><a href="http://chartsnthings.tumblr.com/" title="Chartsnthings">Kevin Quealy</a>
+Chartsnthings</li>
+<li><a href="http://thedailyviz.com/" title="The Daily Viz">Matt Stiles</a>
+The Daily Viz</li>
+<li><a href="http://well-formed-data.net/" title="Well-formed data">Moritz Stefaner</a>
+Well-formed data</li>
+<li><a href="http://eagereyes.org/" title="Eagereyes">Robert Kosara</a>
+Eagereyes</li>
+
+	</ul>
+</aside>
+</div>
+<!-- end .widget-area -->				</div>
+				<!-- end #supplementary -->
+				
+				<div class="site-info">
+									</div>
+				<!-- end .site-info -->
+			</div>
+			<!-- end .row -->
+        </footer>
+        <!-- end .site-footer -->
+    </div>
+    <!-- end #PAGE -->
+	
+	<!-- Piwik plugin active -->				<!-- Piwik code inserted by Piwik Analytics Wordpress plugin by Jules Stuifbergen http://forwardslash.nl/piwik-analytics/ -->
+				<script type="text/javascript">
+									var pkBaseURL = document.location.protocol + "//" + "piwik.vis4.net" + "/";
+								document.write(unescape("%3Cscript src='" + pkBaseURL + "piwik.js' type='text/javascript'%3E%3C/script%3E"));
+				</script><script type="text/javascript">
+				try {
+				var piwikTracker = Piwik.getTracker(pkBaseURL + "piwik.php", 1);
+				piwikTracker.setDocumentTitle(document.title);
+				piwikTracker.trackPageView();
+							piwikTracker.enableLinkTracking();
+							} catch( err ) {}
+				</script>
+				<!-- /Piwik -->
+	<script type='text/javascript' src='http://vis4.net/blog/wp-content/themes/read-v4-2-9/js/detectmobilebrowser.js'></script>
+<script type='text/javascript' src='http://vis4.net/blog/wp-content/themes/read-v4-2-9/js/modernizr.js'></script>
+<script type='text/javascript' src='http://vis4.net/blog/wp-content/themes/read-v4-2-9/js/jquery.imagesloaded.min.js'></script>
+<script type='text/javascript' src='http://vis4.net/blog/wp-content/themes/read-v4-2-9/js/jquery.fitvids.js'></script>
+<script type='text/javascript' src='http://vis4.net/blog/wp-content/themes/read-v4-2-9/js/google-code-prettify/prettify.js'></script>
+<script type='text/javascript' src='http://vis4.net/blog/wp-content/themes/read-v4-2-9/js/jquery.uniform.min.js'></script>
+<script type='text/javascript' src='http://vis4.net/blog/wp-content/themes/read-v4-2-9/js/jquery.flexslider-min.js'></script>
+<script type='text/javascript' src='http://vis4.net/blog/wp-content/themes/read-v4-2-9/js/jquery.isotope.min.js'></script>
+<script type='text/javascript' src='http://vis4.net/blog/wp-content/themes/read-v4-2-9/js/jquery.fancybox-1.3.4.pack.js'></script>
+<script type='text/javascript' src='http://vis4.net/blog/wp-content/themes/read-v4-2-9/js/jquery.masonry.min.js'></script>
+<script type='text/javascript' src='http://vis4.net/blog/wp-content/themes/read-v4-2-9/js/jquery.history.js'></script>
+<script type='text/javascript' src='http://vis4.net/blog/wp-content/themes/read-v4-2-9/js/js-url.min.js'></script>
+<script type='text/javascript' src='http://vis4.net/blog/wp-content/themes/read-v4-2-9/js/jquerypp.custom.js'></script>
+<script type='text/javascript' src='http://vis4.net/blog/wp-content/themes/read-v4-2-9/js/gamma.js'></script>
+<script type='text/javascript' src='http://vis4.net/blog/wp-content/themes/read-v4-2-9/js/main.js'></script>
+<script type='text/javascript' src='http://vis4.net/blog/wp-content/themes/read-v4-2-9/js/jquery.validate.min.js'></script>
+<script type='text/javascript' src='http://vis4.net/blog/wp-content/themes/read-v4-2-9/js/send-mail.js'></script>
+</body>
+</html>
