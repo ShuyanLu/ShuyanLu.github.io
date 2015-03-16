@@ -26,29 +26,21 @@ header h1{
 	float:left;
 	width: auto;
 }
-div ul li a,
-header nav ul li a,
-header h1 a{
 
-}
-div ul li a,
-header nav ul li a,
-header h1 a:visited{
+
+a:visited{
 	color: #000;
 }
-div ul li a,
-header nav ul li a,
-header h1 a:link{
+
+a:link{
 }
-div ul li a,
-header nav ul li a,
-header h1 a:active{
+
+a:active{
 	color: #01718d;
 	border-bottom-color: #01718d;
 }
-div ul li a,
-header nav ul li a,
-header h1 a:hover{
+
+a:hover{
 	color: #346164;
 	border-bottom-color: #346164;
 }
