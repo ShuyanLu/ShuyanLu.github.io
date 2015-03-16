@@ -22,6 +22,7 @@ header {
 }
 
 header h1{
+
 	float:left;
 	width: auto;
 }
@@ -217,6 +218,16 @@ body#portfolio p.stamp{
 	left: 10px;
 }
 
+div.portfolio{
+	clear:both;
+	width: 1400px;
+	display: inline-block;
+	margin-top: 30px;
+}
+
+div.portfolio img{
+	float:left;
+}
 /* Blog */
 div.blogList h2{
 	margin-top: 50px;
@@ -229,6 +240,7 @@ div.blogList ul{
 span.date{
 	font-size: 15px;
 }
+
 
 /* about */
 div.dscrp{
@@ -255,4 +267,5 @@ div.skills{
 
 div.subskills{
 	float:left;
+	width: 600px;
 }
