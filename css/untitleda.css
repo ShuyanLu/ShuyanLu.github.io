@@ -261,3 +261,16 @@ div.subskills{
 	float:left;
 	width: 600px;
 }
+
+/* contact */
+img.contact{
+	display: block;
+	position: fixed;
+	left: 0;
+	padding-bottom: 30px;
+}
+
+
+body#contact footer{
+	margin-top:60px;
+}
