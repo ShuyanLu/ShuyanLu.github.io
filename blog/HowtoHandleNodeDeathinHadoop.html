@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title> Shyan(Lucy) Lu &mdash; data analyst</title>
+        <link href='http://fonts.googleapis.com/css?family=Buda:300' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" type="text/css" href="../css/untitleda.css">
+    </head>
+   	<body id="post">
+        <div class="centered">
+            <header>
+                <h1><a href="index.html">Shuyan(Lucy)  Lu</a><span class="career">, data analyst</span></h1>
+                <nav>
+                    <ul>
+                        <li><a href="about/index.html">About</a></li>
+                        <li><a href="skills/index.html">Skills</a></li>
+                        <li><a href="blog/index.html">Blog</a></li>
+                        <li><a href="portfolio/index.html">Portfolio</a></li>
+                        <li><a class="active" href="resources/index.html">Resources</a></li>
+                        <li><a href="contact/index.html">Contact</a></li>
+                    </ul>
+                </nav>
+            </header>
+            <article>
+            	<h1>How to handle node death in hadoop?</h1>
+                <p class="stamp">Posted on 03/14/2015 to <a href="">Blog</a> | Tags: <a href="">hadoop</a></p>
+                <p>My suggestion is running jps twice after start-all.sh cause I occasionally find node dying right after the first jps command.</p>
+				<p>If you find any nodes dying, here is the common process to handle it.</p>
+				<code>
+				<p>$ cd $HADOOP_HOME<br>
+				$ sbin/yarn-daemon.sh stop nodemanager<br>
+				$ sbin/hadoop-daemon.sh stop datanode<br>
+				$ sbin/hadoop-daemon.sh start datanode && /usr/local/hadoop/sbin/yarn-daemon.sh start nodemanager<br>
+			</p>
+				</code>
+				<p>This process shows the common way to handle node death, but it may needs a little  tweak depending on which node is killed. And always be cautious of formatting namenode.</p>
+            </article>
+        </div>
+        <footer>
+            <p>Copyright © 2015 Shuyan(Lucy) Lu</p>
+        </footer>
+    </body>
+</html>
