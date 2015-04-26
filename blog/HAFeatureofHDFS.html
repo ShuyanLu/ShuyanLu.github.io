@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title> Shyan(Lucy) Lu &mdash; data analyst</title>
+        <link href='http://fonts.googleapis.com/css?family=Buda:300' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" type="text/css" href="../css/untitleda.css">
+    </head>
+   	<body id="post">
+        <div class="centered">
+            <header>
+                <h1><a href="index.html">Shuyan(Lucy)  Lu</a><span class="career">, data analyst</span></h1>
+                <nav>
+                    <ul>
+                        <li><a href="about/index.html">About</a></li>
+                        <li><a href="skills/index.html">Skills</a></li>
+                        <li><a class="active" href="blog/index.html">Blog</a></li>
+                        <li><a href="portfolio/index.html">Portfolio</a></li>
+                        <li><a href="resources/index.html">Resources</a></li>
+                        <li><a href="contact/index.html">Contact</a></li>
+                    </ul>
+                </nav>
+            </header>
+            <article>
+            	<h1>High Available(HA) Feature of HDFS cluster</h1>
+                <p class="stamp">Posted on 03/14/2015 to <a href="">Blog</a> | Tags: <a href="">hadoop</a> , <a href="">HDFS</a></p>
+                <h2>What is HA?</h2>
+                <p>In short, HA feature results from two NameNodes sharing data.</p>
+
+                <h2>How to achieve HA?</h2>
+                <ul>
+                    <li>Network File System</li>
+                     <p>For details about NFS, please refer to <a href="http://hadoop.apache.org/docs/r2.5.2/hadoop-project-dist/hadoop-hdfs/HDFSHighAvailabilityWithNFS.html">hadoop documentation.</a> </p>
+                    <li>Quorum Journal Manager</li>
+
+                    <p>Use Quorum Journal Manager (QJM) feature and Zookeeper Failover Controller</p>
+                    <ul>
+                        <li>Infrastructure</li>
+                        <p>Maintains two NameNodes on separate machines in a cluster</p>
+                        <p>Active NameNode is responsible for all client operations in the cluster.</p> 
+                        <p>Standby NameNode : <br>&nbsp&nbsp&nbsp&nbsp1. maintains enough state to provide a fast failover <br>
+                        &nbsp&nbsp&nbsp&nbsp2. performs checkpoints of the namespace state.
+                        <p>Two namenodes share the same namespace so users don’t need to bother tuning variables.</p>
+                        <p>Only one NameNode can be a writer at a time to prevent the split-brain scenario.</p>                    
+
+                        <p><img class="centered" title="Infrastrusture" src="HAFeatureofHDFS1.png" alt="" width="391" height="350" /></p>
+
+                        <li>Information needed for Failover</li>
+                        <p>For failover, standby NameNode needs namespace modification and block location information.</p>
+                        <p>To offer standby NameNode namespace modification, there are a group of separate daemons called JournalNodes (JNs) in cluster. 
+                        Active NameNode writes modification to JNs and Standby NameNode reads from JNs.
+                        JN daemons may reasonably be co-located on machines with other Hadoop daemons like NameNodes, JobTracker, or the YARN ResourceManager. At least three JournalNode daemons are needed in a cluster.</p>
+                        <p>To offer standby NameNode block location information, DataNodes are configured with the location of both the NameNodes and send block location information and heartbeats to both NameNode machines.
+                        </p>
+                        <li>Once failover happens</li>
+                        <p>Standby NameNode ensures that it has read all of the edits from the JounalNodes and then promotes itself to the Active state.</p>
+                    </ul>
+                </ul>
+            </article>
+        </div>
+        <footer>
+            <p>Copyright © 2015 Shuyan(Lucy) Lu</p>
+        </footer>
+    </body>
+</html>

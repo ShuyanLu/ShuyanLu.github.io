@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title> Shyan(Lucy) Lu &mdash; data analyst</title>
+        <link href='http://fonts.googleapis.com/css?family=Buda:300' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" type="text/css" href="../css/untitleda.css">
+    </head>
+   	<body id="post">
+        <div class="centered">
+            <header>
+                <h1><a href="index.html">Shuyan(Lucy)  Lu</a><span class="career">, data analyst</span></h1>
+                <nav>
+                    <ul>
+                        <li><a href="about/index.html">About</a></li>
+                        <li><a href="skills/index.html">Skills</a></li>
+                        <li><a class="active" href="blog/index.html">Blog</a></li>
+                        <li><a href="portfolio/index.html">Portfolio</a></li>
+                        <li><a  href="resources/index.html">Resources</a></li>
+                        <li><a href="contact/index.html">Contact</a></li>
+                    </ul>
+                </nav>
+            </header>
+            <article>
+            	<h1>Hadoop one line testing </h1>
+                <p class="stamp">Posted on 03/14/2015 to <a href="">Blog</a> | Tags: <a href="">hadoop</a></p>
+                <p>A simple program to test if your hadoop cluster is all set.</p>
+                <h2>Creating Directory</h2>
+                <code>
+                    <p>$ bin/hdfs dfs –mkdir [$directoryName]<br>
+                    $ bin/hdfs dfs –mkdir Users<br>
+                    $ bin/hdfs dfs –mkdir Users/lucy<br></p>
+                </code>
+                
+                <h2>Uploading files</h2>
+                <code>
+                <p>$ bin/hdfs dfs –put [$pathtoLocalfile] [$HDFSdirectory]<br>
+                <p>$ bin/hdfs dfs -put ~/Desktop/data/data1.txt /Users/lucy/</p>
+                </code>
+                <h2>Check Web UI</h2>
+                <p>Open localhost:50070 or 0.0.0.0:50070 in browser</p>
+                <p>Click Utilities and choose Browse the filesystem in drop-down list.You should see you uploaded file in there.</p>
+                
+                <h2>Testing</h2>
+				<code>
+				<p>$ ./hadoop jar ../share/hadoop/mapreduce/hadoop-mapreduce-examples-2.5.2.jar  pi 10 100</p>
+				</code>
+				<p>If it succeeds, it should be like this.</p>
+                <code>
+                <p>
+                    Number of Maps  = 10<br>
+                    Samples per Map = 100<br>
+                    15/04/17 17:52:32 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable<br>
+                    Wrote input for Map #0<br>
+                    Wrote input for Map #1<br>
+                    Wrote input for Map #2<br>
+                    Wrote input for Map #3<br>
+                    Wrote input for Map #4<br>
+                    Wrote input for Map #5<br>
+                    Wrote input for Map #6<br>
+                    Wrote input for Map #7<br>
+                    Wrote input for Map #8<br>
+                    Wrote input for Map #9<br>
+                    Starting Job<br>
+                    15/04/17 17:52:36 INFO client.RMProxy: Connecting to ResourceManager at /0.0.0.0:8032<br>
+                    15/04/17 17:52:37 INFO input.FileInputFormat: Total input paths to process : 10<br>
+                    15/04/17 17:52:37 INFO mapreduce.JobSubmitter: number of splits:10<br>
+                    15/04/17 17:52:37 INFO mapreduce.JobSubmitter: Submitting tokens for job: job_1429307354926_0001<br>
+                    15/04/17 17:52:38 INFO impl.YarnClientImpl: Submitted application application_1429307354926_0001<br>
+                    15/04/17 17:52:38 INFO mapreduce.Job: The url to track the job: http://dyn-209-2-221-21.dyn.columbia.edu:8088/proxy/application_1429307354926_0001/<br>
+                    15/04/17 17:52:38 INFO mapreduce.Job: Running job: job_1429307354926_0001<br>
+                    15/04/17 17:52:50 INFO mapreduce.Job: Job job_1429307354926_0001 running in uber mode : false<br>
+                    15/04/17 17:52:50 INFO mapreduce.Job:  map 0% reduce 0%<br>
+                    15/04/17 17:53:12 INFO mapreduce.Job:  map 10% reduce 0%<br>
+                    15/04/17 17:53:13 INFO mapreduce.Job:  map 30% reduce 0%<br>
+                    15/04/17 17:53:14 INFO mapreduce.Job:  map 60% reduce 0%<br>
+                    15/04/17 17:53:25 INFO mapreduce.Job:  map 70% reduce 0%<br>
+                    15/04/17 17:53:26 INFO mapreduce.Job:  map 100% reduce 0%<br>
+                    15/04/17 17:53:28 INFO mapreduce.Job:  map 100% reduce 100%<br>
+                    15/04/17 17:53:28 INFO mapreduce.Job: Job job_1429307354926_0001 completed successfully<br>
+                    15/04/17 17:53:28 INFO mapreduce.Job: Counters: 49<br>
+                        File System Counters<br>
+                            FILE: Number of bytes read=226<br>
+                            FILE: Number of bytes written=1075129<br>
+                            FILE: Number of read operations=0<br>
+                            FILE: Number of large read operations=0<br>
+                            FILE: Number of write operations=0<br>
+                            HDFS: Number of bytes read=2650<br>
+                            HDFS: Number of bytes written=215<br>
+                            HDFS: Number of read operations=43<br>
+                            HDFS: Number of large read operations=0<br>
+                            HDFS: Number of write operations=3<br>
+                        Job Counters <br>
+                            Launched map tasks=10<br>
+                            Launched reduce tasks=1<br>
+                            Data-local map tasks=10<br>
+                            Total time spent by all maps in occupied slots (ms)=172251<br>
+                            Total time spent by all reduces in occupied slots (ms)=12789<br>
+                            Total time spent by all map tasks (ms)=172251<br>
+                            Total time spent by all reduce tasks (ms)=12789<br>
+                            Total vcore-seconds taken by all map tasks=172251<br>
+                            Total vcore-seconds taken by all reduce tasks=12789<br>
+                            Total megabyte-seconds taken by all map tasks=176385024<br>
+                            Total megabyte-seconds taken by all reduce tasks=13095936<br>
+                        Map-Reduce Framework<br>
+                            Map input records=10<br>
+                            Map output records=20<br>
+                            Map output bytes=180<br>
+                            Map output materialized bytes=280<br>
+                            Input split bytes=1470<br>
+                            Combine input records=0<br>
+                            Combine output records=0<br>
+                            Reduce input groups=2<br>
+                            Reduce shuffle bytes=280<br>
+                            Reduce input records=20<br>
+                            Reduce output records=0<br>
+                            Spilled Records=40<br>
+                            Shuffled Maps =10<br>
+                            Failed Shuffles=0<br>
+                            Merged Map outputs=10<br>
+                            GC time elapsed (ms)=959<br>
+                            CPU time spent (ms)=0<br>
+                            Physical memory (bytes) snapshot=0<br>
+                            Virtual memory (bytes) snapshot=0<br>
+                            Total committed heap usage (bytes)=1876951040<br>
+                        Shuffle Errors<br>
+                            BAD_ID=0<br>
+                            CONNECTION=0<br>
+                            IO_ERROR=0<br>
+                            WRONG_LENGTH=0<br>
+                            WRONG_MAP=0<br>
+                            WRONG_REDUCE=0<br>
+                        File Input Format Counters <br>
+                            Bytes Read=1180<br>
+                        File Output Format Counters <br>
+                            Bytes Written=97<br>
+                    Job Finished in 52.55 seconds<br>
+                    Estimated value of Pi is 3.14800000000000000000<br>
+                </p>
+                </code>
+            </article>
+        </div>
+        <footer>
+            <p>Copyright © 2015 Shuyan(Lucy) Lu</p>
+        </footer>
+    </body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title> Shyan(Lucy) Lu &mdash; data analyst</title>
+        <link href='http://fonts.googleapis.com/css?family=Buda:300' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" type="text/css" href="../css/untitleda.css">
+    </head>
+   	<body id="post">
+        <div class="centered">
+            <header>
+                <h1><a href="index.html">Shuyan(Lucy)  Lu</a><span class="career">, data analyst</span></h1>
+                <nav>
+                    <ul>
+                        <li><a href="about/index.html">About</a></li>
+                        <li><a href="skills/index.html">Skills</a></li>
+                        <li><a class="active" href="blog/index.html">Blog</a></li>
+                        <li><a href="portfolio/index.html">Portfolio</a></li>
+                        <li><a  href="resources/index.html">Resources</a></li>
+                        <li><a href="contact/index.html">Contact</a></li>
+                    </ul>
+                </nav>
+            </header>
+            <article>
+            	<h1>Yarn Structure</h1>
+                <p class="stamp">Posted on 04/26/2015 to <a href="">Blog</a> | Tags: <a href="">hadoop</a> , <a href="">Yarn</a></p>
+    			<p>This post explains Yarn structure and its application executation sequence.</p>
+				<h2>Yarn Components</h2>
+                    <h3>Resource Manager(RM) </h3>
+                    <ul>
+                        <li>Master in master-slave pattern.</li>
+                        <li>Handles an overall resource profile for each application.</li>
+                        <li>Allocates resources to the various running applications subject to familiar constraints of capacities, queues.</li>
+                        <li>Scheduling based on the resource requirements of an application by using the abstract notion of a resource Container, which incorporates resource dimensions such as memory, CPU, disk, network, etc.</li>
+                        <li>Requests resources back from a running application. This situation typically happens when cluster resources become scarce and the scheduler decides to revoke some (but not all) of the resources that were given to an application.</li>
+                    </ul>
+
+                    <h3>Node Manager(NM)</h3>
+                    <ul>
+                        <li>Slave in master-slave pattern, one node manager per machine
+                        <li>Launching the applications’ Containers, monitoring their resource usage (CPU, memory, disk, network) and node health, and reporting this information to the Resource Manager.</li>
+                        <li>Managing logs and other auxiliary services that can be utilized by YARN applications.</li>
+                    </ul>
+                    <p><img class="centered" title="yarnstructure" src="YarnStructure1.png" alt="" width="520" height="391" /></p>
+                    <h3>Application Master(Appmaster)</h3>
+                    <ul>
+                        <li>One application master per application.</li>
+                        <li>A process that coordinates the execution of an application in the cluster</li>
+                        <li>Negotiating resources(containers) from the Resource Manager and working with the Node Managers to track and monitor their progress</li>
+                    </ul>
+                    <h3>Container</h3>
+                    <ul>
+                        <li>A Container represents a collection of physical resource (memory, CPU) on a single node in a given cluster.</li>
+                        <li>A Container is supervised by the Node Manager and scheduled by the Resource Manager.</li>
+                        <li>There can be multiple Containers on a single Node (or a single large one). Every node in the system is considered to be composed of multiple Containers of minimum memory size (512MB or 1 GB, for example). The Application Master can request any Container as a multiple of the minimum memory size.</li>
+                    </ul>
+
+                <h2>Application execution sequence </h2>
+                <p>Resource Manager and Node Managers are already running before computation.
+                Node Manager registers with the Resource Manager once started, and then sends heartbeats with its status and waits for instructions.
+                </p>
+                <ul>
+                    <li>A client program submits the application, including the necessary specifications to launch the application-specific Application Master.</li>
+                    <li>The Resource Manager assumes responsibility for negotiating a specified Container in which to start the Application Master, and then launches the Application Master.</li>
+                    <li>On boot-up, the Application Master registers with the Resource Manager. The registration allows the client program to query the Resource Manager for details, which allows it to directly communicate with its own Application Master.</li>
+                    <li>During normal operation, the Application Master negotiates appropriate resource Containers via the resource-request protocol.</li>
+                    <li>Upon successful Container allocations, the Application Master launches the Container by providing the Container launch specification to the Node Manager. The launch specification typically includes the necessary information to allow the Container to communicate with the Application Master.</li>
+                    <li>The application code executing within the Container then provides necessary information (progress, status etc.) to its Application Master via an application-specific protocol.</li>   
+                    <li>During the application execution, the client that submitted the program communicates directly with the Application Master to get status, progress updates, etc. via an application-specific protocol.</li>
+                    <li>Once the application is complete, the Application Master de-registers with the Resource Manager and shuts down, allowing its own Container to be repurposed.</li>
+                    <p>
+                    <p><b><u>How do AppMaster and Container negotiate?</u></b></p>
+                    <p>Once started, Application Master periodically send heartbeats to the Resource Manager to affirm its health and update the record of its resource demands. After building a model of its requirements, the Application Master encodes its preferences and constraints in a heartbeat message to the Resource Manager. In response to subsequent heartbeats, the Application Master will receive a lease on Containers bound to an allocation of resources at a particular node in the cluster. Depending on the Containers it receives from the Resource Manager, the Application Master may update its execution plan to accommodate the excess or lack of resources. Container allocation/de-allocation can take place in a dynamic fashion as the application progresses.</p>
+                    <p>Container requests (and releases) can take place in a dynamic manner at run-time. For instance, a MapReduce job may request a certain amount of mapper Containers, and as they finish, release them and request that more reducer containers be started.</p> 
+                    <p><b><u>How does node manager initialize container?</u></b></p>
+                    <p>After validating the authenticity of the Container lease, the Node Manager configures the environment for the Container, including initializing its monitoring subsystem with the resource constraints specified by the application. The Node Manager will also kill Containers as directed by the Resource Manager.</p>
+                </ul>
+            </article>
+        </div>
+        <footer>
+            <p>Copyright © 2015 Shuyan(Lucy) Lu</p>
+        </footer>
+    </body>
+</html>
